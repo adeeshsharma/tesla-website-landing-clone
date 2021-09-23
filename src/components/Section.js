@@ -5,36 +5,36 @@ import styled from 'styled-components'
 function Section({ title, description, leftBtnText, rightBtnText, backgroundImg, firstSection }) {
 
 
- return (
+  return (
 
-  <Wrap backgroundImg={backgroundImg} >
-   {/* <Fade top appear> */}
-   <ItemText>
-    <h1>{title}</h1>
-    <p>{description}</p>
-   </ItemText>
-   {/* </Fade> */}
-   {/* <Fade top delay={300} appear> */}
-   <ButtonsWrapper>
-    <ButtonGroup>
-     <LeftButton>{leftBtnText}</LeftButton>
-     {
-      rightBtnText &&
-      <RightButton>
-       {rightBtnText}
-      </RightButton>
-     }
-    </ButtonGroup>
-    {
-     firstSection ?
-      <DownArrow src='/images/down-arrow.svg'></DownArrow> : null
-    }
+    <Wrap backgroundImg={backgroundImg} >
+      <Fade in delay={500} appear>
+        <ItemText>
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </ItemText>
+      </Fade>
+      <Fade top delay={500} appear>
+        <ButtonsWrapper>
+          <ButtonGroup>
+            <LeftButton>{leftBtnText}</LeftButton>
+            {
+              rightBtnText &&
+              <RightButton>
+                {rightBtnText}
+              </RightButton>
+            }
+          </ButtonGroup>
+          {
+            firstSection ?
+              <DownArrow src='/images/down-arrow.svg'></DownArrow> : null
+          }
 
-   </ButtonsWrapper>
-   {/* </Fade> */}
-  </Wrap>
+        </ButtonsWrapper>
+      </Fade>
+    </Wrap>
 
- )
+  )
 }
 
 export default Section
@@ -58,12 +58,20 @@ const Wrap = styled.div`
 const ItemText = styled.div`
  padding-top: 15vh;
  text-align: center;
- font-size: 30px;
+ font-size: 25px;
+
+ @media (max-width: 768px) {
+     
+  font-size: 18px;
+     
+ }
 `
 
 const ButtonsWrapper = styled.div`
-display: flex;
-flex-direction: column
+
+/* can use these if text align center is removed in app.css for .app */
+/* display: flex;
+flex-direction: column */
 `
 
 const ButtonGroup = styled.div`
